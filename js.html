@@ -16,11 +16,13 @@
 
 
 
-    <button onclick="document.write('merhaba js')">Bas bana</button>
+    <button onclick="document.write('merhaba js')">Bas düğmeye</button>
 
     <button onclick="console.log('konsol')">Konsola yaz</button>
 
     <br><br><br>
+
+    <h4>Hipotenus Hesaplama</h4>
 
     <input type="number" id="sayi1" placeholder="1. sayiyi gir">
     <input type="number" id="sayi2" placeholder="2. sayiyi gir">
@@ -28,9 +30,24 @@
     <input type="button" value="Hesapla" id="Hesapla" onclick="kenarHesapla()">
 
     <p id="p2"></p>
-    <p id="cevap">Cevap insallah burada olacak.</p>
+    <p id="cevap">Cevap</p>
     <div id="hip"></div>
 
+    <h4>Sayi Karsilastirma</h4>
+
+    1. Sayi: <input type="number" id="n1">
+    <br><br>
+    2. Sayi: <input type="number" id="n2">
+    <br><br>
+    <input type="button" value="Karsilastir" onclick="Karsilastir()">
+    <br><br>
+    <div id="sonuc">Cevap: </div>
+
+    <br><br><br>
+
+    <h4>Not Hesaplama</h4>
+    <input type="number" id="ogrencinot" onchange="notHesapla()">
+    <a id="notcevap">cevap</a>
 </body>
 </html>
 
@@ -54,4 +71,29 @@
 
     }
 
-</script>
+    function Karsilastir() {
+        var a = parseInt(document.getElementById("n1").value);
+        var b = parseInt(document.getElementById("n2").value);
+        if (a==b) {
+            document.getElementById("sonuc").innerHTML = "Sayilar esit.";
+        }
+        else if (a>b) {
+            document.getElementById("sonuc").innerHTML = "Sayi1 daha buyuk.";
+        } else {
+            document.getElementById("sonuc").innerHTML = "Sayi2 daha buyuk.";
+        }
+    }
+
+    function notHesapla() {
+        var nott = parseInt(document.getElementById("ogrencinot").value);
+        alert(nott);
+        if (nott<0) {
+            document.getElementById("notcevap").innerHTML = "hatali not";
+        } else if (nott < 50) {
+            document.getElementById("notcevap").innerHTML = "kaldiniz";
+        } else {
+            document.getElementById("notcevap").innerHTML = "gectiniz";
+        }
+    }
+        
+    </script>
