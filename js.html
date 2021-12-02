@@ -48,6 +48,7 @@
     <h4>Not Hesaplama</h4>
     <input type="number" id="ogrencinot" onchange="notHesapla()">
     <a id="notcevap">cevap</a>
+    <br><br>
 </body>
 </html>
 
@@ -86,7 +87,6 @@
 
     function notHesapla() {
         var nott = parseInt(document.getElementById("ogrencinot").value);
-        alert(nott);
         if (nott<0) {
             document.getElementById("notcevap").innerHTML = "hatali not";
         } else if (nott < 50) {
@@ -95,5 +95,36 @@
             document.getElementById("notcevap").innerHTML = "gectiniz";
         }
     }
-        
+
+    var i;
+    document.write("1den 100e kadar tek sayilar<br><br>");
+    for (i=1; i<101; i=i+2) {
+        document.write(i + " ");
+    }
+
+    document.write("<br><br><br>");
+
+    var sayi;
+    sayi = prompt("bir sayi giriniz");
+    document.write(sayi + " a kadar olan tek sayilar<br><br>");
+    for (i=1; i<=sayi; i=i+2) {
+        document.write(i+ " ");
+    }
+
+    document.write("<br><br>");
+
+    var metin = window.prompt("metni giriniz");
+    var adet = window.prompt("metin kac defa girilsin");
+
+    for (var i=1; i<=adet; i++) {
+        document.write(metin+"<br>");
+    }
+
+    var s = prompt("carpim tablosu icin sayi giriniz");
+
+    for (var i=1; i<=s; i++) {
+        for (var t=1; t<=s; t++) {
+            document.write(i+"*"+t+"="+i*t+"<br>");
+        }
+    }
     </script>

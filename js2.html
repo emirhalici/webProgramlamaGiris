@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+</head>
+<body>
+    <table width="600px">
+        <tr>
+            <td>
+                Urun Alis Fiyati: 
+            </td>
+            <td>
+                <input type="number" id="alis" maxlength="25" size="20">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Kar Orani (%): 
+            </td>
+            <td>
+                <input type="number" id="kar" size="20">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                KDV Dahil (18%)
+            </td>
+            <td>
+                <input type="checkbox" id="kdv">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Satis Fiyati: 
+            </td>
+            <td>
+                <input type="text" id="satis" disabled="disabled">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Hesapla" onclick="fiyatHesapla()">
+            </td>
+            
+        </tr>
+    </table>
+
+
+
+
+</body>
+
+<script>
+    function fiyatHesapla() {
+        var alis = parseInt(document.getElementById("alis").value);
+        var kar = parseInt(document.getElementById("kar").value);
+        var dahil = document.getElementById("kdv").checked;
+
+        var satis = alis;
+        if (dahil) {
+            satis += satis * 18 / 100;
+        }
+        satis += satis * kar / 100;
+
+        document.getElementById("satis").value = satis;
+    }
+</script>
