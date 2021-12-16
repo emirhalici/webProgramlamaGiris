@@ -104,7 +104,14 @@
     <a id="calcSonuc"></a>
 
     <br><br><br>
-    
+    Vize: <input type="number" id="vize">
+    <br>
+    Final: <input type="number" id="final">
+    <input type="button" value="Hesapla" onclick="finalHesapla()">
+    <input type="button" value="Temizle" onclick="temizle()">
+    <br>
+    Ortalama: <a id="ortalama"></a><br>
+    Durum: <a id="durum"></a><br>
 </body>
 
 <script>
@@ -159,5 +166,17 @@
         }
 
         document.getElementById("calcSonuc").innerHTML = sonuc;
+    }
+    function finalHesapla() {
+        var vize = parseInt(document.getElementById("vize").value);
+        var final = parseInt(document.getElementById("final").value);
+        var not = vize * 0.3 + final * 0.8;
+        document.getElementById("ortalama").innerHTML = not;
+        document.getElementById("durum").innerHTML = not >= 60 ? "gecti" : "kaldi";
+    }
+
+    function temizle() {
+        document.getElementById("vize").value = 0;
+        document.getElementById("final").value = 0;
     }
 </script>
