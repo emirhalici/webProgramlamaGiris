@@ -74,6 +74,7 @@
     </table>
 
     <br><br><br>
+
     <a id="lbl1">Label1</a>
     <a id="lbl2">Label2</a>
     <a id="lbl3">Label3</a>
@@ -81,6 +82,29 @@
     <a id="lbl5">Label5</a>
     <a id="lbl6">Label6</a>
     <input type="button" value="OYNA" onclick="lotoOyna()">
+
+    <br><br><br>
+
+    SAYI 1
+    <input type="number" id="calc1">
+    <br>
+    SAYI 2
+    <input type="number" id="calc2">
+    <br>
+    <input type="radio" id="calcTopla" name="fav_language" checked="true" value="calcTopla">
+    <label for="calcTopla">TOPLA</label><br>
+    <input type="radio" id="calcCikar" name="fav_language" value="calcCikar">
+    <label for="calcCikar">CIKAR</label><br>
+    <input type="radio" id="calcCarp" name="fav_language" value="calcCarp">
+    <label for="calcCarp">CARP</label><br>
+    <input type="radio" id="calcBol" name="fav_language" value="calcBol">
+    <label for="calcBol">BOL</label><br>
+    <input type="button" value="HESAPLA" onclick="calcHesapla()"><br><br>
+    SONUC:  
+    <a id="calcSonuc"></a>
+
+    <br><br><br>
+    
 </body>
 
 <script>
@@ -112,5 +136,28 @@
             rand -= 1;
             document.getElementById("lbl"+i).innerHTML = rand;
         }
+    }
+    function calcHesapla() {
+        var sayi1 = parseInt(document.getElementById("calc1").value);
+        var sayi2 = parseInt(document.getElementById("calc2").value);
+
+        var isTopla = document.getElementById("calcTopla").checked;
+        var isCikar = document.getElementById("calcCikar").checked;
+        var isCarp = document.getElementById("calcCarp").checked;
+        var isBol = document.getElementById("calcBol").checked;
+
+        var sonuc = 0;
+
+        if (isTopla) {
+            sonuc = sayi1 + sayi2;
+        } else if (isCikar) {
+            sonuc = sayi1 - sayi2;
+        } else if (isCarp) {
+            sonuc = sayi1 * sayi2;
+        } else if (isBol) {
+            sonuc = sayi1 / sayi2;
+        }
+
+        document.getElementById("calcSonuc").innerHTML = sonuc;
     }
 </script>
