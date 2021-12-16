@@ -73,6 +73,14 @@
         </tr>
     </table>
 
+    <br><br><br>
+    <a id="lbl1">Label1</a>
+    <a id="lbl2">Label2</a>
+    <a id="lbl3">Label3</a>
+    <a id="lbl4">Label4</a>
+    <a id="lbl5">Label5</a>
+    <a id="lbl6">Label6</a>
+    <input type="button" value="OYNA" onclick="lotoOyna()">
 </body>
 
 <script>
@@ -97,5 +105,12 @@
             sayi--;
         }
         document.getElementById("faktCevap").value = fakt;
+    }
+    function lotoOyna() {   
+        for (var i=1; i<=6; i++) {
+            var rand = Math.ceil(Math.random() * 49);
+            rand -= 1;
+            document.getElementById("lbl"+i).innerHTML = rand;
+        }
     }
 </script>
