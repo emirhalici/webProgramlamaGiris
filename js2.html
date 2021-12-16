@@ -52,8 +52,12 @@
         </tr>
     </table>
 
-
-
+    <br><br><br>
+    Faktoriyel alinacak sayiyi giriniz:
+    <input type="number" id="fakt">
+    <br>
+    <input type="button" value="Hesapla" onclick="faktoriyelHesapla()">
+    <input type="text" id="faktCevap" value="0" disabled="disabled">
 
 </body>
 
@@ -70,5 +74,14 @@
         satis += satis * kar / 100;
 
         document.getElementById("satis").value = satis;
+    }
+    function faktoriyelHesapla() {
+        var sayi = parseInt(document.getElementById("fakt").value);
+        var fakt = 1;
+        while (sayi>0) {
+            fakt *= sayi;
+            sayi--;
+        }
+        document.getElementById("faktCevap").value = fakt;
     }
 </script>
